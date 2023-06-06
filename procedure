@@ -1,0 +1,25 @@
+// Exemplo de procedimento armazenado em SQL para ajudar uma empresa de vendas de cosméticos a criar um relatório com o levantamento
+//diário da quantidade de produtos comprados por dia:
+
+CREATE PROCEDURE GerarRelatorioDiario()
+BEGIN
+    SELECT DataCompra, COUNT(*) AS Quantidade
+    FROM TabelaDeCompras
+    GROUP BY DataCompra;
+END;
+
+// A tabela de compras é chamada de "TabelaDeCompras" e possui uma coluna chamada "DataCompra" que armazena a data em que cada compra foi realizada.
+// O procedimento armazenado "GerarRelatorioDiario" seleciona a coluna "DataCompra" e usa a função de agregação COUNT(*) para contar o número de 
+// registros para cada data de compra. Em seguida, o resultado é agrupado pela coluna "DataCompra". Esse procedimento retornará o relatório desejado 
+// com as datas e a quantidade de produtos comprados em cada dia.
+
+// Após criar o procedimento armazenado, o chamamos para obter o relatório diário utilizando a seguinte sintaxe:
+
+CALL GerarRelatorioDiario();
+
+// Isso executará o procedimento armazenado e retornará o resultado do relatório.
+
+
+
+
+
